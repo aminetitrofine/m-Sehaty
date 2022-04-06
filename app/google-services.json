@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "832856218164",
+    "project_id": "m-sehaty",
+    "storage_bucket": "m-sehaty.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832856218164:android:10fb78f26d87aed3d7c861",
+        "android_client_info": {
+          "package_name": "com.example.m_sehaty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832856218164-kiv69tlgkrb0g5oghmjtcmmvqtcaql9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Z6MO5YEhq07UAdaMjRl-1z6MwCIO0Rw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832856218164-kiv69tlgkrb0g5oghmjtcmmvqtcaql9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
