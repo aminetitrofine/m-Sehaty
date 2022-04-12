@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MSehaty">
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".SignUpActivity"
             android:exported="false"
-            android:label="@string/title_activity_login" />
+             />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

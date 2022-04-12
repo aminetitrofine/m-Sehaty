@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.104" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/drawable/background.xml" value="0.234" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/drawable/ic_asset_7m_sehaty_logo.xml" value="0.104" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/drawable/ic_launcher_background.xml" value="0.104" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/drawable/rounded_corner.xml" value="0.104" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/layout/activity_main.xml" value="0.4" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/layout/activity_sign_in.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Acer/AndroidStudioProjects/m-Sehaty/app/src/main/res/layout/activity_sign_up.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Amine Titrofine/AndroidStudioProjects/mSehaty/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/Users/Amine Titrofine/AndroidStudioProjects/mSehaty/app/src/main/res/drawable/background.xml" value="0.124" />
         <entry key="..\:/Users/Amine Titrofine/AndroidStudioProjects/mSehaty/app/src/main/res/drawable/ic_icondashboard.xml" value="0.124" />
