@@ -27,13 +27,13 @@ public class DoseDAO {
     private Context mContext;
 
     private SQLiteDatabase mDatabase;
-    private DBHelper mDbHelper;
+    private com.abdsoft.med_dose.db.DBHelper mDbHelper;
 
 
 
 
     public DoseDAO(Context context) {
-        mDbHelper = new DBHelper(context);
+        mDbHelper = new com.abdsoft.med_dose.db.DBHelper(context);
         this.mContext = context;
 
         // open the database
@@ -57,30 +57,30 @@ public class DoseDAO {
 
     public void insertNewMedicine(String medicineName, int day, int month, int year, int noOfTimesPerDay, int totalDoses, String timings, String alertType) {
         ContentValues values = new ContentValues();
-        values.put(DBHelper.MED_KEY_NAME, medicineName);
-        values.put(DBHelper.MED_KEY_DAY, day);
-        values.put(DBHelper.MED_KEY_MONTH, month);
-        values.put(DBHelper.MED_KEY_YEAR, year);
-        values.put(DBHelper.MED_KEY_TIMES_PER_DAY, noOfTimesPerDay);
-        values.put(DBHelper.MED_KEY_TOTAL_DOSES, totalDoses);
-        values.put(DBHelper.MED_KEY_TIMINGS, timings);
-        values.put(DBHelper.MED_KEY_ALERT_TYPE, alertType);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME, medicineName);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_DAY, day);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_MONTH, month);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_YEAR, year);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMES_PER_DAY, noOfTimesPerDay);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_TOTAL_DOSES, totalDoses);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMINGS, timings);
+        values.put(com.abdsoft.med_dose.db.DBHelper.MED_KEY_ALERT_TYPE, alertType);
         Log.i("Med-Dose DB Helper",  medicineName + day + month + year + noOfTimesPerDay + totalDoses + timings + alertType);
-        this.mDatabase.insertWithOnConflict(DBHelper.MED_TABLE, null, values, SQLiteDatabase.CONFLICT_REPLACE);
+        this.mDatabase.insertWithOnConflict(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, null, values, SQLiteDatabase.CONFLICT_REPLACE);
         this.mDatabase.close();
     }
 
 
 
     public void deleteMedicine(String medicineName) {
-        this.mDatabase.delete(DBHelper.MED_TABLE, DBHelper.MED_KEY_NAME + " = ?", new String[]{medicineName});
+        this.mDatabase.delete(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME + " = ?", new String[]{medicineName});
         this.mDatabase.close();
     }
 
 
     public List<HomeItem> getMedicineList() {
         List<HomeItem> medicineList = new ArrayList<>();
-        Cursor cursor = this.mDatabase.query(DBHelper.MED_TABLE, new String[]{DBHelper.MED_KEY_NAME, DBHelper.MED_KEY_TIMES_PER_DAY}, null, null, null, null, null);
+        Cursor cursor = this.mDatabase.query(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, new String[]{com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMES_PER_DAY}, null, null, null, null, null);
         while (cursor.moveToNext()) {
             HomeItem homeItem = new HomeItem(cursor.getString(0)  , cursor.getString(1) + " times a day");
             medicineList.add(homeItem);
@@ -94,7 +94,7 @@ public class DoseDAO {
 
     public int getId(String name) {
         int id = 0;
-        Cursor cursor = this.mDatabase.query(DBHelper.MED_TABLE, new String[]{DBHelper.MED_KEY_NAME, DBHelper.MED_KEY_TIMES_PER_DAY}, null, null, null, null, null);
+        Cursor cursor = this.mDatabase.query(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, new String[]{com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMES_PER_DAY}, null, null, null, null, null);
         while (cursor.moveToNext()) {
             id = cursor.getInt(0);
         }
@@ -105,7 +105,7 @@ public class DoseDAO {
 
     public List<HistoryItem> getMedicineHistory() {
         List<HistoryItem> historyList = new ArrayList<>();
-        Cursor cursor = this.mDatabase.query(DBHelper.MED_TABLE, new String[]{DBHelper.MED_KEY_NAME, DBHelper.MED_KEY_DAY, DBHelper.MED_KEY_MONTH, DBHelper.MED_KEY_YEAR, DBHelper.MED_KEY_TIMES_PER_DAY, DBHelper.MED_KEY_TOTAL_DOSES, DBHelper.MED_KEY_TIMINGS}, null, null, null, null, null);
+        Cursor cursor = this.mDatabase.query(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, new String[]{com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME, com.abdsoft.med_dose.db.DBHelper.MED_KEY_DAY, com.abdsoft.med_dose.db.DBHelper.MED_KEY_MONTH, com.abdsoft.med_dose.db.DBHelper.MED_KEY_YEAR, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMES_PER_DAY, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TOTAL_DOSES, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMINGS}, null, null, null, null, null);
         while (cursor.moveToNext()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(cursor.getInt(3), cursor.getInt(2), cursor.getInt(1));
@@ -122,7 +122,7 @@ public class DoseDAO {
     public List<String> getTimings(String medicineName) {
         List<String> timingList = new ArrayList<>();
         StringBuffer timingsString = new StringBuffer();
-        Cursor cursor = this.mDatabase.query(DBHelper.MED_TABLE, new String[]{DBHelper.MED_KEY_TIMINGS}, DBHelper.MED_KEY_NAME + " = ?", new String[]{medicineName}, null, null, null);
+        Cursor cursor = this.mDatabase.query(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, new String[]{com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMINGS}, com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME + " = ?", new String[]{medicineName}, null, null, null);
         while (cursor.moveToNext()) {
             timingsString.append(cursor.getString(0));
             Log.i("Timings", timingsString.toString());
@@ -147,7 +147,7 @@ public class DoseDAO {
     public int noOfDaysLeft(String medicineName, Calendar mNextAlarmDate) {
         int mPerDay = 0, mTotalDodes = 0;
         int day = 0, month = 0, year = 0;
-        Cursor cursor = this.mDatabase.query(DBHelper.MED_TABLE, new String[]{DBHelper.MED_KEY_DAY, DBHelper.MED_KEY_MONTH, DBHelper.MED_KEY_YEAR, DBHelper.MED_KEY_TIMES_PER_DAY, DBHelper.MED_KEY_TOTAL_DOSES}, DBHelper.MED_KEY_NAME + " = ?", new String[]{medicineName}, null, null, null);
+        Cursor cursor = this.mDatabase.query(com.abdsoft.med_dose.db.DBHelper.MED_TABLE, new String[]{com.abdsoft.med_dose.db.DBHelper.MED_KEY_DAY, com.abdsoft.med_dose.db.DBHelper.MED_KEY_MONTH, com.abdsoft.med_dose.db.DBHelper.MED_KEY_YEAR, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TIMES_PER_DAY, com.abdsoft.med_dose.db.DBHelper.MED_KEY_TOTAL_DOSES}, com.abdsoft.med_dose.db.DBHelper.MED_KEY_NAME + " = ?", new String[]{medicineName}, null, null, null);
         while (cursor.moveToNext()) {
             day = cursor.getInt(0);
             month = cursor.getInt(1);
